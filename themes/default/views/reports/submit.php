@@ -50,8 +50,8 @@
 				</div>
 				<div class="report_row">
 					<h4><?php echo Kohana::lang('ui_main.reports_description'); ?> <span class="required">*</span> </h4>
-					<span class="allowed-html"><?php echo html::allowed_html(); ?></span>
-					<?php print form::textarea('incident_description', $form['incident_description'], ' rows="10" class="textarea long" ') ?>
+					<span class="allowed-html"><?php echo "O que é?<br>O que motivou a iniciativa?<br>Principais resultados obtidos?<br>Desafios enfrentados?<br>Lições aprendidas e recomendações?<br>";//html::allowed_html(); ?></span>
+					<?php print form::textarea('incident_description', $form['incident_description'], 'rows="10" class="textarea long" ') ?>
 				</div>
 				<div class="report_row" id="datetime_default">
 					<h4>
@@ -109,7 +109,7 @@
 				<?php Event::run('ushahidi_action.report_form_frontend_after_time'); ?>
 				</div>
 				<div class="report_row">
-					<h4><?php echo Kohana::lang('ui_main.reports_categories'); ?> <span class="required">*</span></h4>
+					<h4><?php echo "Público proponente"; //Kohana::lang('ui_main.reports_categories'); ?> <span class="required">*</span></h4>
 					<div class="report_category" id="categories">
 					<?php
 						$selected_categories = (!empty($form['incident_category']) AND is_array($form['incident_category']))
@@ -117,7 +117,18 @@
 							: array();
 							
 						
-						echo category::form_tree('incident_category', $selected_categories, 2);
+						echo category::form_tree_personalized(1,'incident_category', $selected_categories, 1);
+						?>
+					</div>
+                                        <h4><?php echo "Tipos Resíduos"; //Kohana::lang('ui_main.reports_categories'); ?> <span class="required">*</span></h4>
+					<div class="report_category" id="categories">
+					<?php
+						$selected_categories = (!empty($form['incident_category']) AND is_array($form['incident_category']))
+							? $selected_categories = $form['incident_category']
+							: array();
+							
+						
+						echo category::form_tree_personalized(2,'incident_category', $selected_categories, 1);
 						?>
 					</div>
 				</div>
@@ -130,7 +141,7 @@
 
 				<?php echo $custom_forms ?>
 
-				<div class="report_optional">
+				<!--<div class="report_optional">
 					<h3><?php echo Kohana::lang('ui_main.reports_optional'); ?></h3>
 					<div class="report_row">
 						<h4><?php echo Kohana::lang('ui_main.reports_first'); ?></h4>
@@ -148,7 +159,7 @@
 					// Action::report_form_optional - Runs in the optional information of the report form
 					Event::run('ushahidi_action.report_form_optional');
 					?>
-				</div>
+				</div>-->
 			</div>
 			<div class="report_right">
 				<?php if (count($cities) > 1): ?>

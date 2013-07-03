@@ -119,6 +119,127 @@ class category_Core {
 
 		return $html;
 	}
+        
+        /**
+	 * Display category tree with input checkboxes for forms personalized
+	 * 
+	 * @param string $form_field form field name
+	 * @param array $selected_categories Categories that should be already selected
+	 * @param int $columns number of columns to display
+	 * @param bool $enable_parents Can parent categoires be select
+	 * @param bool $show_hidden Show hidden categories
+	 */
+	public static function form_tree_personalized($id_category, $form_field, array $selected_categories = array(), $columns = 1, $enable_parents = FALSE, $show_hidden = FALSE)
+	{
+		$category_data = self::get_category_tree_data(FALSE, $show_hidden);
+		
+		$html = '';
+
+		// Validate columns
+		$columns = (int) $columns;
+		if ($columns == 0)
+		{
+			$columns = 1;
+		}
+
+		$categories_total = count($category_data);
+
+		// Format categories for column display.
+		// Column number
+		$this_col = 1;
+
+		// Maximum number of elements per column
+		$maxper_col = round($categories_total / $columns);
+		
+		// start the first column
+		$html .= "\n".'<ul class="category-column category-column-'.$this_col.'" id="category-column-'.$this_col.'">'."\n";
+
+		$i = 1;  // Element Count
+		foreach ($category_data as $category)
+		{
+
+                    if($id_category==1){
+                        if($category['category_description']=="Sociedade civil organizada" || $category['category_description']=="Poder publico" || $category['category_description']=="Setor privado"){
+                            // Display parent category.
+                            $html .= "\n\t".'<li title="'.$category['category_description'].'">';
+                            $html .= "\n\t\t".category::display_category_checkbox($category, $selected_categories, $form_field, $enable_parents)."\n";
+
+                            // Display child categories.
+                            if (count($category['children']) > 0)
+                            {
+                                    $html .= "\t\t<ul>";
+                                    foreach ($category['children'] as $child)
+                                    {
+                                            $html .= "\n\t\t\t".'<li  title="'.$child['category_description'].'">'."\n";
+                                            $html .= category::display_category_checkbox($child, $selected_categories, $form_field, $enable_parents);
+                                            $html .= "\n\t\t\t".'</li>'."\r\n";
+                                    }
+                                    $html .= "\t\t".'</ul>'."\r\n";
+                            }
+
+                            $html .= "\t</li>\n";
+
+                            // If this is the last element of a column, close the UL
+                            if ( (($i % $maxper_col) == 0 AND $i > 0) OR $i == $categories_total)
+                            {
+                                    $html .= "</ul>\n";
+                                    $this_col++;
+                                    if($i < $categories_total)
+                                    {
+                                            $html .= '<ul class="category-column category-column-'.$this_col.'" id="category-column-'.$this_col.'">';
+                                    }
+                            }
+                        
+                        }
+			$i++;
+                    }
+                    if($id_category==2){
+                        if($category['category_description']=="Tipo de residuos"){
+                            // Display parent category.
+                            $html .= "\n\t".'<li title="'.$category['category_description'].'">';
+                            $html .= "\n\t\t".category::display_category_checkbox($category, $selected_categories, $form_field, $enable_parents)."\n";
+
+                            // Display child categories.
+                            if (count($category['children']) > 0)
+                            {
+                                    $html .= "\t\t<ul>";
+                                    foreach ($category['children'] as $child)
+                                    {       
+                                        if($child['category_description']!="Logistica reversa"){
+                                            $html .= "\n\t\t\t".'<li  title="'.$child['category_description'].'">'."\n";
+                                            $html .= category::display_category_checkbox($child, $selected_categories, $form_field, $enable_parents);
+                                            $html .= "\n\t\t\t".'</li>'."\r\n";
+                                        }else{
+                                            $html .= "\n\t\t\t".'<li style="font-weight:bold;" title="'.$child['category_description'].'">'."\n";
+                                            $html .= category::display_category_checkbox($child, $selected_categories, $form_field, $enable_parents);
+                                            $html .= "\n\t\t\t".'</li>'."\r\n";
+                                            
+                                        } 
+                                    }
+                                    $html .= "\t\t".'</ul>'."\r\n";
+                            }
+
+                            $html .= "\t</li>\n";
+
+                            // If this is the last element of a column, close the UL
+                            if ( (($i % $maxper_col) == 0 AND $i > 0) OR $i == $categories_total)
+                            {
+                                    $html .= "</ul>\n";
+                                    $this_col++;
+                                    if($i < $categories_total)
+                                    {
+                                            $html .= '<ul class="category-column category-column-'.$this_col.'" id="category-column-'.$this_col.'">';
+                                    }
+                            }
+                        
+                        }
+			$i++;
+                    }
+			
+		}
+
+		return $html;
+	}
 	
 	/**
 	 * Generates a category tree view - recursively iterates

@@ -427,7 +427,7 @@
 						<!-- f-col-bottom -->
 						<div class="f-col-bottom-container">
 							<div class="f-col-bottom">
-								<div class="row">
+								<!--<div class="row">
 									<h4><?php echo Kohana::lang('ui_main.personal_information');?></span></h4>
 									<label>
 										<span><?php echo Kohana::lang('ui_main.first_name');?></span>
@@ -443,7 +443,7 @@
 										<span><?php echo Kohana::lang('ui_main.email_address');?></span>
 										<?php print form::input('person_email', $form['person_email'], ' class="text"'); ?>
 									</label>
-								</div>
+								</div>-->
 							</div>
 							<!-- f-col-bottom-1 -->
 							<div class="f-col-bottom-1">

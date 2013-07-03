@@ -63,8 +63,8 @@
 
 				</ul>
 				<?php if ($site_copyright_statement != ''): ?>
-	      		<p><?php echo $site_copyright_statement; ?></p>
-		      	<?php endif; ?>
+                                   <p><?php echo $site_copyright_statement; ?></p>
+                                <?php endif; ?>
 			</div>
 			<!-- / footer menu -->
 
