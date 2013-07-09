@@ -1,0 +1,258 @@
+/*
+Theme Name: PNRS (code name)
+Description: Map is front-and center with a simplified home page.
+Demo: http://www.ushahidi.com
+Version: 1.0
+Author: Harley Monteiro
+Author Email: harleymonteiro@gmail.com
+*/
+
+@charset "utf-8";
+/* CSS Document */
+
+/* --------------------------CSS Reset básico-------------------------- */
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+
+@font-face {font-family: 'GnuolaneRg-Regular';src: url('webfonts/276DDA_0_0.eot');src: url('webfonts/276DDA_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/276DDA_0_0.woff') format('woff'),url('webfonts/276DDA_0_0.ttf') format('truetype');}
+
+
+html {
+height: 100%;
+}
+body {
+margin:0px;
+padding:0px;
+height:100%;
+font-size:100%;
+font-family: 'Open Sans', sans-serif;
+color:#3F3F3F;
+background-color:#FFFFFF;
+}
+
+p{
+	font-size:0.875em;
+	margin-bottom:10px;
+	line-height:1.4;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-family: 'GnuolaneRg-Regular';
+	font-weight:normal;
+}
+h1{
+	border-bottom: solid 1px #000;
+	margin-bottom:20px;
+}
+
+/* --------------------------Topo-------------------------- */
+#topoheader{
+	height:126px;
+	background:url(../images/bg-topo.png) repeat-x;
+	position:relative;
+	z-index:3;
+}
+#topo{
+	height:126px;
+        width: 100%;
+	background:url(../images/bg-topo.png) repeat-x;
+	position:absolute;
+	right:0;
+	z-index:3;
+}
+#logoimg{
+        float: left;
+        width: 309px;
+        height: 69px;
+	margin:30px;
+        position:absolute;
+	z-index:3;
+}
+
+#menu{
+	width:450px;
+	float:right;
+	margin:30px;
+}
+
+nav{
+	float:right;
+}
+
+nav ul{
+	list-style:none;
+}
+nav ul li{
+	display:inline;
+}
+
+nav ul li a{
+	font-family: 'GnuolaneRg-Regular';
+	color:#FFFFFF;
+	font-size:0.845em;
+	text-decoration:none;
+	padding: 0 10px;
+	border-right:solid 1px #FFFFFF;
+}
+nav ul li a:hover{
+	background-color:#FFFFFF;
+	color:#1A9E92;
+}
+
+nav ul li a.last{
+	border:none;
+}
+
+#busca{
+	float:right;
+	margin:10px 0;
+}
+
+#busca input{
+	padding:4px;
+	background:url(../images/icone-busca.png) no-repeat center right #FFFFFF;
+	color:#999999;
+	border:solid 1px #CCCCCC;
+}
+
+#abas{
+	height:52px;
+	width:522px;
+	background:url(../images/bg-abas.png) no-repeat;
+	position:absolute;
+	top:115px;
+	right:0;
+	z-index:2;
+}
+a.bt-ver, a.bt-adicione{
+	font-family: 'GnuolaneRg-Regular';
+	color:#FFFFFF;
+	font-size:0.846em;
+	text-decoration:none;
+	text-transform:uppercase;
+	text-decoration:none;
+	display:block;
+	padding:10px 0 10px 30px;
+	text-shadow: 1px 1px 1px #807e7e;
+        filter: dropshadow(color=#807e7e, offx=1, offy=1);
+}
+a.bt-ver{
+	background:url(../images/icone-ver-praticas.png) no-repeat center left;
+	margin-left:63px;
+	float:left;
+}
+a.bt-adicione{
+	background:url(../images/icone-adicione.png) no-repeat center left;
+	margin-left:53px;
+	float:left;
+}
+
+/* --------------------------Rodapé-------------------------- */
+#footer{
+	height:55px;
+        width: 100%;
+	background:url(../images/bg-rodape.png) repeat-x;
+	position:absolute;
+	z-index:3;
+}
+
+#footer-left{
+	float:left;
+	padding:8px;
+	margin-left:10px;
+}
+#footer-left img{
+	margin-left:15px;
+}
+#footer-right{
+	float:right;
+	padding:8px;
+	margin-right:10px;
+}
+#footer-right img{
+	margin-right:15px;
+}
+/* --------------------------Mapa-------------------------- 
+#mapa{
+	background:url(../images/mapa.jpg) center center;
+	width:100%;
+	min-height:100%;
+	height:auto;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:1;
+}
+
+/* IE */
+/* html #mapa{
+height:100%;
+}*/
+
+/* --------------------------Menu Lateral-------------------------- */
+#menu-lateral{
+	position:absolute;
+	z-index:3;
+	top:140px;
+	left:40px;
+}
+#menu-lateral ul{
+	list-style:none;	
+}
+#menu-lateral ul li{
+	background:url(../images/bg-verde-transp.png);
+	padding:0 10px;
+	margin-top:3px;
+}
+#menu-lateral ul li.ativo{
+	background:url(../images/bg-verde2-transp.png);
+}
+#menu-lateral ul li:hover{
+	background:url(../images/bg-verde2-transp.png);
+}
+#menu-lateral ul li.primeiro{
+    -webkit-border-radius: 10px 10px 0px 0px;
+    border-radius: 10px 10px 0px 0px;
+}
+#menu-lateral ul li.ultimo{
+    -webkit-border-radius: 0px 0px 10px 10px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+#menu-lateral ul li a{
+	font-family: 'GnuolaneRg-Regular';
+	color:#FFFFFF;
+	font-size:1.275em;
+	text-decoration:none;
+	padding: 7px 0 7px 25px;
+	display:block;
+}
+#menu-lateral ul li a.visualizar{
+	background:url(../images/gota-branca.png) no-repeat left center;
+}
+#menu-lateral ul li a.publico{
+	background:url(../images/gota-violeta.png) no-repeat left center;
+}
+#menu-lateral ul li a.privado{
+	background:url(../images/gota-laranja.png) no-repeat left center;
+}
+#menu-lateral ul li a.civil{
+	background:url(../images/gota-rosa.png) no-repeat left center;
+}
+#menu-lateral ul li a.selecionadas{
+	background:url(../images/estrela.png) no-repeat left center;
+}
+#menu-lateral ul li a.tipos{
+	background:url(../images/icone-busca2.png) no-repeat left center;
+}
+
+/* --------------------------Shadowbox-------------------------- */
+#popup{
+	background-color:#FFFFFF;
+	padding:40px;
+	border-top: solid 8px #1A9E92;
+}
