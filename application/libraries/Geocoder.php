@@ -34,6 +34,63 @@ class Geocoder_Core {
 		{
 			return false;
 		}
+           /* if ($address)
+		{
+			// Does this installation have a google api key?
+			$api_key = Kohana::config('settings.api_google');
+			if ($api_key)
+			{
+				$base_url = "http://" . GEOCODER_GOOGLE . "/maps/geo?output=xml" . "&key=" . api_key;
+
+				// Deal with the geocoder timing out during operations
+				$geocode_pending = true;
+
+				while ($geocode_pending) {
+					$request_url = $base_url . "&q=" . urlencode($address);
+
+					//$xml = simplexml_load_file(utf8_encode($request_url)) or die("url not loading");
+					$page = file_get_contents($request_url);
+					$page = utf8_encode($page);
+					$xml = new SimpleXMLElement($page);
+
+					$status = $xml->Response->Status->code;
+					if (strcmp($status, "200") == 0)
+					{
+						// Successful geocode
+						$geocode_pending = false;
+						$coordinates = $xml->Response->Placemark->Point->coordinates;
+						$coordinatesSplit = explode(",", $coordinates);
+						// Format: Longitude, Latitude, Altitude
+						$lng = $coordinatesSplit[0];
+						$lat = $coordinatesSplit[1];
+
+						return array($lng, $lat);
+
+					}
+					else if (strcmp($status, "620") == 0)
+					{
+						// sent geocodes too fast
+						$delay += 100000;
+					}
+					else
+					{
+						// failure to geocode
+						return false;
+					}
+					usleep($delay);
+				}
+
+			}
+			// Install doesn't have api key - can't geocode with google
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}*/
 	}
 
 
@@ -46,7 +103,8 @@ class Geocoder_Core {
 	 */
 	function geocode_feed ($feed_url = NULL)
 	{
-		$base_url = "http://" . GEOCODER_GEONAMES . "/rssToGeoRSS?";
+		//$base_url = "http://" . GEOCODER_GEONAMES . "/rssToGeoRSS?";
+                $base_url = "http://" . '5.9.41.208' . "/rssToGeoRSS?";
 
 		if ($feed_url)
 		{

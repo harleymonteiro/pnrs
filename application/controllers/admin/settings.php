@@ -997,7 +997,8 @@ class Settings_Controller extends Admin_Controller {
 
 		if ($country->loaded)
 		{
-			$base_url = "http://overpass-api.de/api/";
+			//$base_url = "http://overpass-api.de/api/";
+                        $base_url = "http://5.9.7.85/api/";
 
 			// Get the cities within the country info
 			// Limited to 1000 items to avoid query time out

@@ -1,17 +1,17 @@
 Theme Name: PNRS
 Description: Map is front-and center with a simplified home page. Please note, this plugin requ
-Demo: http://www.ushahidi.com
+Demo: 
 Version: 1.1
-Author: Harley Monteiro
-Author Email: harleymonteiro@gmail.com
+Author: Caleb Bell
+Author Email: 
 
 
 ===CHANGELOG===
 
-PNRS v1.0, 07-08-2013
+Unicorn v1.1, 09-19-2011
 ---------------------------------
 * added "How to Report" toggle section to map on home page.
 
-PNRS v1.0, 07-08-2013
+Unicorn v1.0, 09-16-2011
 ---------------------------------
 * version one released
