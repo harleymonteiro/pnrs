@@ -579,11 +579,11 @@ class Reports_Controller extends Main_Controller {
 								Kohana::lang('notifications.admin_new_comment.subject'),
 								Kohana::lang('notifications.admin_new_comment.message')
 								."\n\n'".utf8::strtoupper($incident->incident_title)."'"
-								."\n".url::base().'reports/view/'.$id
+								."\n".url::base().'index.php/reports/view/'.$id
 							);
 					}
 					// Redirect
-					url::redirect('reports/view/'.$id);
+					url::redirect('index.php/reports/view/'.$id);
 				
 				}
 				else

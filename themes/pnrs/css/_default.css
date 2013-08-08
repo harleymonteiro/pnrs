@@ -79,18 +79,27 @@ a{
 	position:absolute;
 	z-index:2;
 	height:126px;
-    width: 100%;
+        width: 100%;
 	background:url(../images/bg-topo.png) repeat-x top left;
 
 }
 #logoimg{
     float: left;
-    width: 309px;
-    height: 69px;
+    width: 384px;
+    height: 71px;
 }
 
 #logoimg img{
-	margin:35px 30px 0 30px; 
+	margin:20px 30px 0 30px; 
+}
+
+#logoimg .logotxt{
+	font-family: 'GnuolaneRg-Regular';
+	color:#FFFFFF!important;
+	font-size:0.8em;
+	text-decoration:none;
+	padding: 0 10px;
+        margin-left: 25px;
 }
 
 #menu{

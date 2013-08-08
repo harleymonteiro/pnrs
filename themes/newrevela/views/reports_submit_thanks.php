@@ -14,7 +14,7 @@
 					print form::open('http://feedback.ushahidi.com/fillsurvey.php?sid=2', array('target'=>'_blank'));
 					print form::hidden('alert_code', $_SERVER['SERVER_NAME']);
 					print "&nbsp;&nbsp;";
-					print form::submit('button', Kohana::lang('ui_main.feedback'), ' class=btn_gray ');
+					//print form::submit('button', Kohana::lang('ui_main.feedback'), ' class=btn_gray ');
 					print form::close();
 					?>
 				</div>

@@ -63,14 +63,15 @@
     <!-- header --> 
     <div id="topo">
         <div id="logoimg">
-                <img src="<?php echo url::file_loc('images'); ?>/themes/pnrs/images/logo-plataforma.png" alt="Resíduos Sólidos - Boas Práticas em Educação Ambiental"/>
+                <img src="<?php echo url::file_loc('images'); ?>/themes/pnrs/images/logo-plataforma_educares.png" alt="Resíduos Sólidos - Boas Práticas em Educação Ambiental"/>
+                <div class="logotxt">Práticas de Educação Ambiental e Comunicação Social em Resíduos Sólidos</div>
         </div>    
         <div id="menu">
 
             <div id="busca">
-                    <form>
-                    <input type="text" value="Buscar" onFocus="javascript:this.value=''" />
-                </form>
+                    <form action="http://localhost/pnrs/index.php/search" method="get" id="search">
+                        <input type="text" name="k" value="Buscar" onFocus="javascript:this.value=''" />
+                    </form>
             </div>
             <div id="menu-int">
                     <ul>

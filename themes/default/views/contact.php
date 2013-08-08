@@ -56,6 +56,7 @@
 				</div>		
 				<div class="report_row">
 					<strong><?php echo Kohana::lang('ui_main.contact_code'); ?>:</strong><br />
+                                        <span class="allowed-html"><?php echo "Coloque o resultado da soma para ter acesso ao sistema com segurança.<br>";//html::allowed_html(); ?></span>
 					<?php print $captcha->render(); ?><br />
 					<?php print form::input('captcha', $form['captcha'], ' class="text"'); ?>
 				</div>
